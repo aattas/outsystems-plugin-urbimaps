@@ -26,7 +26,7 @@
 	      <pods use-frameworks="true">
 	      	<!-- <pod name="DGisMobileSDK" spec="~> 4.2.0-full" /> -->
 	      	<!-- <pod name="DGisMobileSDK" spec="~> 5.2.1-full" /> -->
-	      	<pod name="DGisMobileSDK" spec="5.2.1-full" />
+	      	<pod name="DGisMobileSDK" spec="5.2.2-full" />
 	      </pods>
 	    </podspec>
 
@@ -36,7 +36,6 @@
 			</feature>
 		</config-file>
 		<source-file src="src/ios/UrbiMaps.swift" />
-		<!--<source-file src="src/ios/CameraDemoViewModel.swift" /> -->
 		<source-file src="src/ios/Container.swift" />
 		<source-file src="src/ios/NavigationSettingsView.swift" />
 		<source-file src="src/ios/FullScreenHostingController.swift" />
@@ -62,6 +61,9 @@
 		<source-file src="src/ios/SDKClasses/Extensions/Channel+Helpers.swift" />
 		<source-file src="src/ios/SDKClasses/Extensions/RenderedObjectInfo+Helpers.swift" />
 		<source-file src="src/ios/SDKClasses/Extensions/Future+Helpers.swift" />
+		<source-file src="src/ios/SDKClasses/Extensions/GeoPoint+Helpers.swift" />
+		<source-file src="src/ios/SDKClasses/Views/Settings/SettingsView.swift" />
+		<source-file src="src/ios/SDKClasses/Views/Settings/SettingsViewModel.swift" />
 		<source-file src="src/ios/SDKClasses/Views/DemoPages/RouteSearch/RouteView/RouteViewModel.swift" />
 		<source-file src="src/ios/SDKClasses/Views/DemoPages/RouteSearch/RouteView/RouteView.swift" />
 		<source-file src="src/ios/SDKClasses/Views/DemoPages/RouteSearch/RouteView/RouteDetailsVC.swift" />
@@ -70,11 +72,16 @@
 		<source-file src="src/ios/SDKClasses/Views/DemoPages/RouteSearch/RouteSearchDemoViewModel.swift" />
 		<source-file src="src/ios/SDKClasses/Views/DemoPages/RouteSearch/RouteSearchSettingsView.swift" />
 		<source-file src="src/ios/SDKClasses/Views/DemoPages/RouteSearch/RouteSearchDemoView.swift" />
-		<source-file src="src/ios/SDKClasses/Views/DemoPages/Markers/MarkersDemoViewModel.swift" />
+		<source-file src="src/ios/SDKClasses/Views/DemoPages/Search/SearchDemoView.swift" />
+		<source-file src="src/ios/SDKClasses/Views/DemoPages/Search/SearchDemoViewModel.swift" />
+		<source-file src="src/ios/SDKClasses/Views/DemoPages/Search/SearchView/SuggestResultView.swift" />
+		<source-file src="src/ios/SDKClasses/Views/DemoPages/Search/SearchView/SearchResultItemView.swift" />
+		<source-file src="src/ios/SDKClasses/Views/DemoPages/Search/SearchView/SearchView.swift" />
 		<source-file src="src/ios/SDKClasses/Views/DemoPages/Markers/MarkersDemoView.swift" />
 		<source-file src="src/ios/SDKClasses/Views/DemoPages/Markers/Marker/MarkerViewModel.swift" />
 		<source-file src="src/ios/SDKClasses/Views/DemoPages/Markers/Marker/DetailsActionView.swift" />
 		<source-file src="src/ios/SDKClasses/Views/DemoPages/Markers/Marker/MarkerView.swift" />
+		<source-file src="src/ios/SDKClasses/Views/DemoPages/Markers/MarkersDemoViewModel.swift" />
 		<source-file src="src/ios/SDKClasses/Views/DemoPages/VisibleAreaDetection/VisibleAreaDetectionDemoView.swift" />
 		<source-file src="src/ios/SDKClasses/Views/DemoPages/VisibleAreaDetection/VisibleAreaDetectionDemoViewModel.swift" />
 		<source-file src="src/ios/SDKClasses/Views/DemoPages/CustomGestures/CustomMapGestureView.swift" />
@@ -95,8 +102,11 @@
 		<source-file src="src/ios/SDKClasses/Views/DemoPages/CustomMapControls/CustomMapControlsDemoView.swift" />
 		<source-file src="src/ios/SDKClasses/Views/DemoPages/CustomMapControls/CustomZoomControl/CustomZoomControl.swift" />
 		<source-file src="src/ios/SDKClasses/Views/DemoPages/Search/SearchDemoView.swift" />
+		<source-file src="src/ios/SDKClasses/Views/DemoPages/Search/SearchDemoView.swift" />
 		<source-file src="src/ios/SDKClasses/Views/DemoPages/Search/SearchDemoViewModel.swift" />
 		<source-file src="src/ios/SDKClasses/Views/DemoPages/Search/SearchView/SuggestResultView.swift" />
+		<source-file src="src/ios/SDKClasses/Views/DemoPages/Search/SearchView/SearchResultItemView.swift" />
+		<source-file src="src/ios/SDKClasses/Views/DemoPages/Search/SearchView/SearchView.swift" />
 		<source-file src="src/ios/SDKClasses/Views/DemoPages/Search/SearchView/SearchResultItemView.swift" />
 		<source-file src="src/ios/SDKClasses/Views/DemoPages/Search/SearchView/SearchView.swift" />
 		<source-file src="src/ios/SDKClasses/Views/DemoPages/Search/SearchView/SuggestView.swift" />
@@ -125,15 +135,147 @@
 		<source-file src="src/ios/SDKClasses/Views/DemoPages/MapObjectsIdentification/MapMarkerView/MapMarkerPresenter.swift" />
 		<source-file src="src/ios/SDKClasses/Views/DemoPages/MapObjectsIdentification/MapObjectsIdentificationDemoView.swift" />
 		<source-file src="src/ios/SDKClasses/Views/DemoPages/Navigator/NavigatorDemoPageView.swift" />
+		<source-file src="src/ios/SDKClasses/Views/DemoPages/Navigator/NavigatorSettings/NavigatorVoicesSettingsView.swift" />
+		<source-file src="src/ios/SDKClasses/Views/DemoPages/Navigator/NavigatorSettings/VoiceRowView.swift" />
+		<source-file src="src/ios/SDKClasses/Views/DemoPages/Navigator/NavigatorSettings/NavigatorSettingsViewModel.swift" />
+		<source-file src="src/ios/SDKClasses/Views/DemoPages/Navigator/NavigatorSettings/FreeRoamSettings.swift" />
+		<source-file src="src/ios/SDKClasses/Views/DemoPages/Navigator/NavigatorSettings/NavigatorOptions.swift" />
+		<source-file src="src/ios/SDKClasses/Views/DemoPages/Navigator/NavigatorSettings/FreeRoamSettingsView.swift" />
+		<source-file src="src/ios/SDKClasses/Views/DemoPages/Navigator/NavigatorSettings/NavigatorSettingsView.swift" />
+		<source-file src="src/ios/SDKClasses/Views/DemoPages/Navigator/NavigatorSettings/VoiceRowViewModel.swift" />
+		<source-file src="src/ios/SDKClasses/Views/DemoPages/Navigator/PlatformZoomFollowController.swift" />
+		<source-file src="src/ios/SDKClasses/Views/DemoPages/Navigator/RoadEventCardPresenter.swift" />
+		<source-file src="src/ios/SDKClasses/Views/DemoPages/Navigator/NavigatorDemoViewModel.swift" />
+		<source-file src="src/ios/SDKClasses/Views/DemoPages/Navigator/NavigatorTargetPointSearchOverlayView.swift" />
+		<source-file src="src/ios/SDKClasses/Views/DemoPages/TerritoryManager/TerritoryView.swift" />
+		<source-file src="src/ios/SDKClasses/Views/DemoPages/TerritoryManager/TerritoryManagerDemoViewModel.swift" />
+		<source-file src="src/ios/SDKClasses/Views/DemoPages/TerritoryManager/TerritoryViewModel.swift" />
+		<source-file src="src/ios/SDKClasses/Views/DemoPages/TerritoryManager/TerritoryManagerDemoView.swift" />
+		<source-file src="src/ios/SDKClasses/Views/DemoPages/Fps/FpsDemoView.swift" />
+		<source-file src="src/ios/SDKClasses/Views/DemoPages/Fps/FpsDemoViewModel.swift" />
+		<source-file src="src/ios/SDKClasses/Views/Common/PickerView.swift" />
+		<source-file src="src/ios/SDKClasses/Views/Common/SettingsFormDisclosureButton.swift" />
+		<source-file src="src/ios/SDKClasses/Views/Common/LazyView.swift" />
+		<source-file src="src/ios/SDKClasses/Views/Common/SettingsFormTextField.swift" />
+		<source-file src="src/ios/SDKClasses/Views/Common/Button+Factory.swift" />
+		<source-file src="src/ios/SDKClasses/Views/Map/MapControl.swift" />
+		<source-file src="src/ios/SDKClasses/Views/Map/MapView.swift" />
+		<source-file src="src/ios/SDKClasses/Views/Root/RootViewModel.swift" />
+		<source-file src="src/ios/SDKClasses/Views/Root/RootViewModel.swift" />
+		<source-file src="src/ios/SDKClasses/Views/Root/RootView.swift" />
+		<source-file src="src/ios/SDKClasses/Views/Root/RootViewFactory.swift" />
+		<source-file src="src/ios/SDKClasses/Views/Root/DemoPageListRow.swift" />
+		<source-file src="src/ios/SDKClasses/Views/Root/DemoPageComponentsFactory.swift" />
+		<source-file src="src/ios/SDKClasses/Views/Root/DemoPageListRow.swift" />
+		<source-file src="src/ios/SDKClasses/Views/Root/DemoPageComponentsFactory.swift" />
+		<source-file src="src/ios/SDKClasses/Views/NavigatorView/NavigatorView.swift" />
+		<source-file src="src/ios/SDKClasses/Views/ViewModifiers/LongPressAndDragRecognizer.swift" />
+		<source-file src="src/ios/SDKClasses/Views/ViewModifiers/TextFieldClearButton.swift" />
+		<source-file src="src/ios/SDKClasses/Views/ViewModifiers/TouchUpRecognizer.swift" />
+		<source-file src="src/ios/SDKClasses/Services/MapFactoryProvider.swift" />
+		<source-file src="src/ios/SDKClasses/Services/FeedbackGenerator.swift" />
+		<source-file src="src/ios/SDKClasses/Services/LocationService/LocationService.swift" />
+		<source-file src="src/ios/SDKClasses/Services/Search/SearchStore.swift" />
+		<source-file src="src/ios/SDKClasses/Services/Search/SeachState.swift" />
+		<source-file src="src/ios/SDKClasses/Services/Search/SearchNavigation.swift" />
+		<source-file src="src/ios/SDKClasses/Services/Search/SearchService.swift" />
+		<source-file src="src/ios/SDKClasses/Services/Search/SearchReducer.swift" />
+		<source-file src="src/ios/SDKClasses/Services/Search/SearchAction.swift" />
+		<source-file src="src/ios/SDKClasses/Services/NavigatorSettings.swift" />
+		<source-file src="src/ios/SDKClasses/Services/IKeyValueStorage.swift" />
+		<source-file src="src/ios/SDKClasses/Services/IMapSourceFactory.swift" />
+		<source-file src="src/ios/SDKClasses/Services/SettingsService.swift" />
+		<source-file src="src/ios/SDKClasses/Services/ApplicationIdleTimerService.swift" />
+		<source-file src="src/ios/SDKClasses/Services/NavigationService.swift" />
 
 	</platform>
 	<platform name="android">
-		<config-file parent="/*" target="res/xml/config.xml">
+		<!-- Hooks -->
+		<hook type="before_plugin_install" src="hooks/copy_sdk_key_android.js.js" />
+
+		<config-file target="AndroidManifest.xml" parent="/manifest">
+			<uses-permission android:name="android.permission.INTERNET" />
+			<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+			<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+			<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+        </config-file>
+		
+		<config-file target="config.xml" parent="/*">
+			<preference name="GradlePluginKotlinVersion" value="1.6.0" />
+			<preference name="GradlePluginKotlinEnabled" value="true" />
+            <preference name="GradlePluginKotlinCodeStyle" value="official" />
+            <preference name="AndroidXEnabled" value="true"/>
+			<!--<preference name="android-minSdkVersion" value="22" />
+			<preference name="android-targetSdkVersion" value="33" />
+			<preference name="android-compileSdkVersion" value="33" />-->
+
+
 			<feature name="UrbiMaps">
-				<param name="android-package" value="outsystems-plugin-urbimaps.UrbiMaps" />
+				<param name="android-package" value="com.outsystems.plugin.urbimaps.UrbiMaps" />
 			</feature>
+
 		</config-file>
+
+		<config-file target="AndroidManifest.xml" parent="/manifest/application">
+        	<activity
+            	android:label="MainMapsActivity"
+            	android:name="com.outsystems.plugin.urbimaps.MainMapsActivity"
+            	android:theme="@style/Theme.AppCompat.NoActionBar"/>
+
+        	<activity android:label="SearchActivity" 
+            	android:name="com.outsystems.plugin.urbimaps.SearchActivity"
+            	android:theme="@style/Theme.AppCompat.NoActionBar"/>
+
+        	<activity android:label="MapsGisFullActivity" 
+            	android:name="com.outsystems.plugin.urbimaps.MapsGisFullActivity"
+            	android:theme="@style/Theme.AppCompat.NoActionBar"/>
+        </config-file>
+
+		<config-file target="./res/values/strings.xml" parent="/resources">
+  			<string-array name="route_search_types">
+        		<item>Car</item>
+        		<item>Pedestrian</item>
+        		<item>Bicycle</item>
+    		</string-array>
+		</config-file>
+		
 		<config-file parent="/*" target="AndroidManifest.xml"></config-file>
-		<source-file src="src/android/UrbiMaps.java" target-dir="src/outsystems-plugin-urbimaps/UrbiMaps" />
+		
+		<!-- Setting gradale custom to add 2gis maps dependency -->
+		<framework src="src/android/urbimaps.gradle" custom="true" type="gradleReference" />
+
+		<!-- Copy files Kotlin -->
+		<source-file src="src/android/UrbiMaps.kt" target-dir="app/src/main/kotlin/com/outsystems/plugin/urbimaps" />
+		<source-file src="src/android/MainMapsActivity.kt" target-dir="app/src/main/kotlin/com/outsystems/plugin/urbimaps" />
+		<source-file src="src/android/SearchActivity.kt" target-dir="app/src/main/kotlin/com/outsystems/plugin/urbimaps" />
+		<source-file src="src/android/SdkContext.kt" target-dir="app/src/main/kotlin/com/outsystems/plugin/urbimaps" />
+		<source-file src="src/android/NavigationViewModel.kt" target-dir="app/src/main/kotlin/com/outsystems/plugin/urbimaps" />
+		<source-file src="src/android/MapsGisFullActivity.kt" target-dir="app/src/main/kotlin/com/outsystems/plugin/urbimaps" />
+		<source-file src="src/android/CustomCompassManager.kt" target-dir="app/src/main/kotlin/com/outsystems/plugin/urbimaps" />
+		<source-file src="src/android/CustomLocationManager.kt" target-dir="app/src/main/kotlin/com/outsystems/plugin/urbimaps" />
+
+		<!-- Copies Layouts-->
+		<source-file src="src/android/layouts/activity_main.xml" target-dir="res/layout" />
+		<source-file src="src/android/layouts/activity_maps_full.xml" target-dir="res/layout" />
+		<source-file src="src/android/layouts/activity_search.xml" target-dir="res/layout" />
+		<source-file src="src/android/layouts/item_search.xml" target-dir="res/layout" />
+		<source-file src="src/android/layouts/rounded_edittext.xml" target-dir="res/drawable" />
+		<source-file src="src/android/layouts/rounded_edittext_initial.xml" target-dir="res/drawable" />
+		<source-file src="src/android/layouts/ic_back.xml" target-dir="res/drawable" />
+		<source-file src="src/android/layouts/ic_start.xml" target-dir="res/drawable" />
+		<source-file src="src/android/layouts/ic_finish.xml" target-dir="res/drawable" />
+		<source-file src="src/android/layouts/ic_navigation.xml" target-dir="res/drawable" />
+		<source-file src="src/android/layouts/ic_location.xml" target-dir="res/drawable" />
+		<source-file src="src/android/layouts/route_points_menu.xml" target-dir="res/menu" />
+
+		<!-- Copies Search Items -->
+		<source-file src="src/android/AdapterSearch.kt" target-dir="app/src/main/kotlin/com/outsystems/plugin/urbimaps" />
+
+		<!-- Copy Image Logo NEOM -->
+		<source-file src="src/neom_logo.png" target-dir="res/drawable" />
+
+		<!-- Copy the DGISSDK KEY-->
+		<source-file src="src/dgissdk.key" target-dir="app/src/main/assets" />
+
 	</platform>
 </plugin>

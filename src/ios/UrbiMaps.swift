@@ -5,11 +5,10 @@
 //  Created by Andre Grillo on 10/04/2023.
 //
 
-import Foundation
 import SwiftUI
 import DGis
 
-@objc
+@objc(UrbiMaps)
 class UrbiMaps: CDVPlugin {
     var hostingViewController: UIViewController?
     lazy var container = Container()

@@ -1,13 +1,7 @@
 var fs = require("fs");
 var path = require("path");
-var utils = require("./utilities");
-var defer = require("q").defer();
 var xcode = require('xcode');
-var ncp = require('ncp').ncp;
-var constants = {
-  sdkKeyFile: "dgissdk.key",
-  sdkClasses: "SDKClasses"
-};
+var fse = require('fs-extra');
 
 function getProjectName() {
     var config = fs.readFileSync('config.xml').toString();
@@ -22,66 +16,45 @@ function getProjectName() {
 }
 
 module.exports = function(context) {
-  var platform = context.opts.plugin.platform;
-  var platformConfig = utils.getPlatformConfigs(platform);
-  if (!platformConfig) {
-    utils.handleError("Invalid platform", defer);
-  }
+  var projectName = getProjectName();
 
-  var sourceFolderPath = path.join(context.opts.projectRoot, 'plugins/outsystems-plugin-urbimaps/src/ios/sdkClasses');
+  var sourceFolderPath = path.join(context.opts.projectRoot, 'plugins/outsystems-plugin-urbimaps/src/ios/SDKClasses');
   console.log("⭐️⭐️⭐️ >>>sourceFolderPath: " + sourceFolderPath);
-  var destFolderPath = path.join(context.opts.projectRoot, 'platforms/ios/groupName'); // Update the destination folder name as desired
-
+  
+  var destFolderPath = path.join(context.opts.projectRoot, 'platforms/ios/' + projectName + '/SDKClasses'); // Update the destination folder name as desired
+  
   if (!fs.existsSync(sourceFolderPath)) {
-    utils.handleError("🚨 SDK folder not found in resources!", defer);
+    console.error("🚨 SDKClasses folder not found!");
+    return;
   }
 
-  // Create the destination folder
   if (!fs.existsSync(destFolderPath)) {
     fs.mkdirSync(destFolderPath);
   }
 
-  // Copy the entire folder to the destination
-  ncp(sourceFolderPath, destFolderPath, function (err) {
-    if (err) {
-      utils.handleError("🚨 Error copying SDK folder: " + err, defer);
-    } else {
-      console.log("⭐️ SDK Folder copied successfully to: " + destFolderPath);
-      continueXcodeSetup();
-    }
-  });
-
-  function continueXcodeSetup() {
-    var projectName = getProjectName();
-    var pbxProjPath = path.join(context.opts.projectRoot, 'platforms/ios/' + projectName + ".xcodeproj/project.pbxproj");
-    var projPath = path.join(context.opts.projectRoot, 'platforms/ios/' + projectName);
-
-    var project = xcode.project(pbxProjPath);
-    project.parseSync();
-
-    var classesKey = project.findPBXGroupKey({ name: 'CustomTemplate' }); 
-
-    // Create a group in the Xcode project
-    var groupName = 'groupName'; // Update with the desired group name
-    var group = project.pbxCreateGroup(groupName, 'projectName/' + groupName);
-    project.addToPbxGroup(group, classesKey);
-
-    // Iterate through the files in the destination folder and add them to the Xcode project
-    var files = fs.readdirSync(destFolderPath);
-    files.forEach(function(file) {
-      var filePath = path.join(groupName, file);
-      if (file.indexOf(".h") >= 0) {
-        project.addHeaderFile(filePath, null, group);
-      } else {
-        project.addSourceFile(filePath, null, group);
-      }
-    });
-
-    fs.writeFileSync(pbxProjPath, project.writeSync());
-    console.log('⭐️ Project written');
-
-    defer.resolve(); // Resolve the promise to indicate the completion of the hook
+  
+  try {
+  fse.copySync(sourceFolderPath, destFolderPath, { overwrite: true })
+    console.log('⭐️⭐️⭐️ >>> folder copy was successful! <<< ⭐️⭐️⭐️')
+  } catch (err) {
+    console.error("🚨🚨🚨 >>> Error copying sources folder <<< 🚨🚨🚨")
   }
 
-  return defer.promise;
-}
+
+  var pbxProjPath = path.join(context.opts.projectRoot, 'platforms/ios/' + projectName + '.xcodeproj/project.pbxproj'); // Update with the actual Xcode project name
+
+  var project = xcode.project(pbxProjPath);
+  project.parseSync();
+
+  var classesKey = project.findPBXGroupKey({ name: 'CustomTemplate' });
+
+  var group = project.pbxCreateGroup('SDKClasses', projectName, '/SDKClasses'); // Update 'groupName' and 'projectName' with the desired names
+
+
+  //ITERAR AQUI E ADD TUDO!
+  project.addToPbxGroup(group, classesKey);
+  project.addResourceFile('SDKKey/dgissdk.key', null, group); // Assuming 'dgissdk.key' is a resource file, change accordingly if it's a source file
+
+  fs.writeFileSync(pbxProjPath, project.writeSync());
+  console.log('⭐️ Project written');
+};

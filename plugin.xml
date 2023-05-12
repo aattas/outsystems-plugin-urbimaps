@@ -40,7 +40,7 @@
 		<source-file src="src/ios/NavigationSettingsView.swift" />
 		<source-file src="src/ios/FullScreenHostingController.swift" />
 		<source-file src="src/neom_logo.png" />
-		<source-file src="src/dgissdk.key" />
+		<resource-file src="src/dgissdk.key" />
 
 		<source-file src="src/ios/SDKClasses/Models/MapDataSource.swift" />
 		<source-file src="src/ios/SDKClasses/Models/NavigatorVoiceVolumeSource.swift" />

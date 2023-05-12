@@ -16,11 +16,9 @@ module.exports = function(context) {
 
   //platforms/android/app/src/main/assets
 
-  var wwwPath = utils.getResourcesFolderPath(context, platform, platformConfig);
-  console.log("wwwPath: " + wwwPath);
-  var sourceFilePath = path.join(wwwPath, '/SDKKey/' + constants.sdkKeyFile);
+  var sourceFilePath = path.join(context.opts.projectRoot, '/platforms/android/app/src/main/assets/www/SDKKey/' + constants.sdkKeyFile);
   console.log("⭐️ sourceFilePath: " + sourceFilePath);
-  var destFilePath = path.join(context.opts.projectRoot, 'platforms/android/app/src/main/assets' + constants.sdkKeyFile);
+  var destFilePath = path.join(context.opts.projectRoot, 'platforms/android/app/src/main/assets/' + constants.sdkKeyFile);
   console.log("⭐️ destFilePath: " + destFilePath);
 
   if (fs.existsSync(sourceFilePath)) {

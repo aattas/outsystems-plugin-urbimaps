@@ -265,7 +265,7 @@
 		<source-file src="src/neom_logo.png" target-dir="res/drawable" />
 
 		<!-- Copy the DGISSDK KEY-->
-		<source-file src="src/dgissdk.key" target-dir="app/src/main/assets" />
+		<!--<source-file src="src/dgissdk.key" target-dir="app/src/main/assets" />-->
 
 	</platform>
 </plugin>

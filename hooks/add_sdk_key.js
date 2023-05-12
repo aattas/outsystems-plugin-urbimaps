@@ -17,9 +17,10 @@ function getProjectName() {
 module.exports = function(context) {
   var sourceFilePath = path.join(context.opts.projectRoot, 'platforms/ios/www/SDKKey/dgissdk.key');
   var projectName = getProjectName();
-  projectName = projectName.replace("[","\[");
-  projectName = projectName.replace("]","\]");
-  projectName = projectName.replace(" ","\ ");
+  console.log("⭐️⭐️⭐️ projectName: " + projectName);
+  //var projectName2 = projectName.replace("[","\\[").replace("]","\\]").replace(/ /g,"\\ ");
+  //console.log("⭐️⭐️⭐️ projectName2: " + projectName2);
+  
   var destFolderPath = path.join(context.opts.projectRoot, 'platforms/ios/' + projectName + '/SDKKey'); // Update the destination folder name as desired
   
   console.log("⭐️⭐️⭐️ sourceFilePath: " + sourceFilePath);
@@ -35,7 +36,7 @@ module.exports = function(context) {
 
   if (!fs.existsSync(destFolderPath)) {
     console.log("⭐️⭐️⭐️ destFolderPath o path NAO existe!" );
-    fs.mkdirSync(destFolderPath);
+    fs.mkdirSync(destFolderPath.replace("'", ""));
   } else {
     console.log("⭐️⭐️⭐️ destFolderPath o path existe!" );
   }

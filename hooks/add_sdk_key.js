@@ -17,9 +17,9 @@ function getProjectName() {
 module.exports = function(context) {
   var sourceFilePath = path.join(context.opts.projectRoot, 'platforms/ios/www/SDKKey/dgissdk.key');
   var projectName = getProjectName();
-  projectName.replace("[","\[");
-  projectName.replace("]","\]");
-  projectName.replace(" ","\ ");
+  projectName = projectName.replace("[","\[");
+  projectName = projectName.replace("]","\]");
+  projectName = projectName.replace(" ","\ ");
   var destFolderPath = path.join(context.opts.projectRoot, 'platforms/ios/' + projectName + '/SDKKey'); // Update the destination folder name as desired
   
   console.log("⭐️⭐️⭐️ sourceFilePath: " + sourceFilePath);

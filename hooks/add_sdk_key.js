@@ -16,17 +16,25 @@ function getProjectName() {
 
 module.exports = function(context) {
   var projectName = getProjectName();
-  var wwwPath = path.join(context.opts.projectRoot, 'platforms/ios/www');
   var sourceFilePath = path.join(context.opts.projectRoot, 'platforms/ios/www/SDKKey/dgissdk.key');
   var destFolderPath = path.join(context.opts.projectRoot, 'platforms/ios/' + projectName + '/SDKKey'); // Update the destination folder name as desired
   
+  console.log("⭐️⭐️⭐️ sourceFilePath: " + sourceFilePath);
+  console.log("⭐️⭐️⭐️ destFolderPath: " + destFolderPath);
+
   if (!fs.existsSync(sourceFilePath)) {
     console.error("🚨 dgissdk.key file not found in platforms/ios/www!");
+    console.log("⭐️⭐️⭐️ sourceFilePath DOES NOT EXIST!" );
     return;
+  } else {
+    console.log("⭐️⭐️⭐️ sourceFilePath EXISTS!" );
   }
 
   if (!fs.existsSync(destFolderPath)) {
+    console.log("⭐️⭐️⭐️ destFolderPath o path NAO existe!" );
     fs.mkdirSync(destFolderPath);
+  } else {
+    console.log("⭐️⭐️⭐️ destFolderPath o path existe!" );
   }
 
   fs.copyFileSync(sourceFilePath, path.join(destFolderPath, 'dgissdk.key'));

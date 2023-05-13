@@ -16,8 +16,8 @@ class UrbiMaps: CDVPlugin {
     @objc(openMap:)
     func openMap(command: CDVInvokedUrlCommand){
         let searchView = self.container.makeSearchStylesDemoPage()
-        lazy var hostingViewController = UIHostingController(rootView: searchView)
+        let hostingViewController = UIHostingController(rootView: searchView)
         hostingViewController.modalPresentationStyle = .fullScreen
-        self.viewController.show(hostingViewController, sender: self);
+        self.viewController.present(hostingViewController, animated: true, completion: nil)
     }
 }

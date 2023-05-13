@@ -7,6 +7,13 @@
 | Data 7   | Data 8   | Data 9   |
 
 
+| ![OutSystems Logo](https://media.trustradius.com/product-logos/yQ/pJ/SN525CFRJHL3-180x180.PNG) | A plugin that seamlessly integrates with Urbi maps to support maps, navigation, and map search, along with other features typically provided by mapping solutions. |
+|----------|----------|
+| Data 3   | Data 4   | Data 5   |
+| Data 6   | Data 7   | Data 8   |
+
+
+
 |  | Description |  |
 
 | License | MIT |

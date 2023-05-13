@@ -1,6 +1,6 @@
 # OutSystems Urbi Maps Plugin
 
-| ![OutSystems Logo](https://media.trustradius.com/product-logos/yQ/pJ/SN525CFRJHL3-180x180.PNG) | A plugin that seamlessly integrates with Urbi maps to support maps, navigation, and map search, along with other features typically provided by mapping solutions. |
+| ![OutSystems Logo](https://media.trustradius.com/product-logos/yQ/pJ/SN525CFRJHL3-180x180.PNG) | A plugin that seamlessly integrates with Urbi maps to support maps, navigation, and map search, along with other features typically provided by mapping solutions. |  |
 |----------|----------|----------|
 | Data 1   | Data 2   | Data 3   |
 | Data 4   | Data 5   | Data 6   |

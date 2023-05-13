@@ -1,6 +1,6 @@
 # OutSystems Urbi Maps Plugin
 
-![Urbi.ae Logo](https://media.licdn.com/dms/image/C4E0BAQG9Wfkj1p6SwQ/company-logo_200_200/0/1645530884086?e=2147483647&v=beta&t=0I0bjh82tlenlQ48mBrO47qpdXLyBcSxyFdl7kPg1Eg) ![OutSystems Logo](https://t4spartners.com/wp-content/uploads/2021/11/Outsystems.png)
+![OutSystems Logo](https://t4spartners.com/wp-content/uploads/2021/11/Outsystems.png)
 
 This Cordova plugin provides seamless integration with Urbi maps for iOS and Android platforms. It enables OutSystems developers to incorporate maps, navigation, search, and other advanced features typically offered by maps solutions into their Cordova applications.
 

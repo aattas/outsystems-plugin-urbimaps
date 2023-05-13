@@ -1,6 +1,7 @@
 # OutSystems Urbi Maps Plugin
 
 | ![OutSystems Logo](https://media.trustradius.com/product-logos/yQ/pJ/SN525CFRJHL3-180x180.PNG) | Description | A plugin that seamlessly integrates with Urbi maps to support maps, navigation, and map search, along with other features typically provided by mapping solutions. |
+| | 
 |:---:|| Platform Support | iOS, Android |
 | License | MIT |
 

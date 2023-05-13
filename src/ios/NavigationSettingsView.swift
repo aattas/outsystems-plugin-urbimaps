@@ -33,14 +33,7 @@ struct NavigationSettingsView: View {
                 List {
                 Section(header: Text("Start Location")){
                     
-                    
-                    
-                    
-                    //                Text("Source Location")
-                    //                    .font(.headline)
-                    //                    .frame(maxWidth: .infinity, alignment: .leading)
-                    //                    .padding(.leading, 20)
-                    
+
                     Toggle(isOn: $useCurrentLocation) {
                         Text("Use Current Location")
                             .foregroundColor(useCurrentLocation ? .primary : .gray)
@@ -50,10 +43,7 @@ struct NavigationSettingsView: View {
                     .padding(.leading, 20)
                     .padding(.trailing, 20)
                     
-                    
-//                    if !useCurrentLocation {
                         Button(action: {
-                            // Select Start Location action
                         }) {
                             HStack {
                                 Image(systemName: "restart.circle.fill")
@@ -71,16 +61,6 @@ struct NavigationSettingsView: View {
                         .padding(.horizontal)
                         .disabled(useCurrentLocation)
                         
-//                        TextField("Enter Source Location", text: $sourceLocation)
-//                            .textFieldStyle(RoundedBorderTextFieldStyle())
-//                            .padding()
-//                            .disabled(useCurrentLocation)
-//                            .opacity(useCurrentLocation ? 0.5 : 1.0)
-//                            .padding(.horizontal)
-                        
-//                    } else {
-//                        //Spacer().frame(height: 8)
-//                    }
                 }
             
                 
@@ -104,29 +84,13 @@ struct NavigationSettingsView: View {
                                 .cornerRadius(8)
                         }
                         .padding(.horizontal)
-                        
-//                        Text("Destination")
-//                            .font(.headline)
-//                            .padding()
-//                            .frame(maxWidth: .infinity, alignment: .leading)
-//                            .padding(.top, 10)
-                        
-//                        TextField("Enter Destination Location", text: .constant(""))
-//                            .textFieldStyle(RoundedBorderTextFieldStyle())
-//                            .padding(.leading, 20)
-//                            .padding(.trailing, 20)
-                        
+                    
                         
                     }
                     
                 
                     Section(header: Text("Navigation")){
-//                        Text("Navigation Type")
-//                            .font(.headline)
-//                            .frame(maxWidth: .infinity, alignment: .leading)
-//                            .padding(.leading, 20)
-//                            .padding(.top)
-//
+
                         Picker("", selection: $selectedNavigationType) {
                             HStack {
                                 Image(systemName: "car")
@@ -161,18 +125,7 @@ struct NavigationSettingsView: View {
                         }
                         .padding(.horizontal)
                         
-                        
-                        //                Button(action: {
-                        //                    // Show route action
-                        //                }) {
-                        //                    Text("Show Route")
-                        //                        .frame(maxWidth: .infinity)
-                        //                        .padding()
-                        //                        .background(Color.blue)
-                        //                        .foregroundColor(.white)
-                        //                        .cornerRadius(8)
-                        //                }
-                        //                .padding(.horizontal)
+
                         
                         Button(action: {
                             // Simulate route action

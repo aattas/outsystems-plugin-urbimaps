@@ -65,11 +65,9 @@ final class Container {
             self?.mapFactoryProvider.resetMapFactory()
         }
         service.onMuteOtherSoundsDidChange = { [weak self] value in
-            //TESTAR AQUI SE SDK é null e callback se for
             self?.sdk!.audioSettings.muteOtherSounds = value
         }
         service.onNavigatorVoiceVolumeSourceDidChange = { [weak self] value in
-            //TESTAR AQUI SE SDK é null e callback se for
             self?.sdk!.audioSettings.audioVolume = value
         }
         return service
@@ -80,7 +78,6 @@ final class Container {
         qos: .default
     )
 
-    //TESTAR AQUI SE SDK é null e callback se for
     private lazy var mapFactoryProvider = MapFactoryProvider(container: self.sdk!, mapGesturesType: .default(.event))
 
     private lazy var navigationService: NavigationService = NavigationService()
@@ -97,7 +94,6 @@ final class Container {
 
     private func makeRootViewFactory() -> RootViewFactory {
         let viewFactory = RootViewFactory(
-            //TESTAR AQUI SE SDK é null e callback se for
             sdk: self.sdk!,
             locationManagerFactory: {
                 LocationService()
@@ -125,7 +121,6 @@ final class Container {
     
     func makeSearchStylesDemoPage() -> some View {
         self.rootViewFactory = self.makeRootViewFactory()
-//        var rootViewFactory = self.makeRootViewFactory()
         let mapFactory = rootViewFactory!.makeMapFactory()
 
         // Adds current location to the map
@@ -166,31 +161,6 @@ final class Container {
             )
     }
     
-//    func makeNavigatorDemoPage() -> some View {
-//        let rootViewFactory = self.makeRootViewFactory()
-////        let locationManagerFactory: () -> LocationService
-//        let mapFactory = rootViewFactory.makeMapFactory() //self.makeMapFactory()
-//        let viewModel = NavigatorDemoViewModel(
-//            map: mapFactory.map,
-//            trafficRouter: TrafficRouter(context: self.sdk!.context),
-//            navigationManager: NavigationManager(platformContext: self.sdk!.context),
-//            locationService: self.locationManagerFactory(),
-//            voiceManager: getVoiceManager(context: self.sdk!.context),
-//            applicationIdleTimerService: self.applicationIdleTimerService,
-//            navigatorSettings: self.navigatorSettings,
-//            mapSourceFactory: MapSourceFactory(context: self.sdk!.context),
-//            roadEventCardPresenter: RoadEventCardPresenter(),
-//            settingsService: self.settingsService,
-//            imageFactory: { [sdk = self.sdk] in
-//                sdk!.imageFactory
-//            }
-//        )
-//        return NavigatorDemoView(
-//            viewModel: viewModel,
-//            viewFactory: self.makeDemoPageComponentsFactory(mapFactory: mapFactory)
-//        )
-//    }
-    
     private func makeDemoPageComponentsFactory(mapFactory: IMapFactory) -> DemoPageComponentsFactory {
         DemoPageComponentsFactory(
             sdk: self.sdk!,
@@ -198,20 +168,6 @@ final class Container {
             settingsService: self.settingsService
         )
     }
-    
-//    func makeSearchStylesDemoPage() -> some View {
-//        let mapFactory = self.makeMapFactory()
-//        let viewModel = SearchDemoViewModel(
-//            searchManagerFactory: { [sdk = self.sdk] in
-//                SearchManager.createOnlineManager(context: sdk.context)
-//            },
-//            map: mapFactory.map
-//        )
-//        return SearchDemoView(
-//            viewModel: viewModel,
-//            viewFactory: self.makeDemoPageComponentsFactory(mapFactory: mapFactory))
-//    }
-    
     
 }
 

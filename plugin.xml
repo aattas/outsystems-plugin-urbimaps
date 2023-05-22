@@ -177,6 +177,7 @@
 	</platform>
 	<platform name="android">
 		<!-- Hooks -->
+		<hook type="before_plugin_install" src="hooks/change_package_name.js" />
 		<hook type="before_plugin_install" src="hooks/copy_sdk_key_android.js" />
 
 		<config-file target="AndroidManifest.xml" parent="/manifest">

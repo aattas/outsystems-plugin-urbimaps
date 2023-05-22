@@ -25,7 +25,7 @@ function fix_package(filePath, originalImport, correctImport) {
     }
 
     if (fileData.includes(originalImport)){
-      var fileContents = fileData.replace(originalImport, correctImport);
+      var fileContents = fileData.replace(new RegExp(originalImport, 'g'), correctImport);
       saveFile(filePath, fileContents);
 
     } else {

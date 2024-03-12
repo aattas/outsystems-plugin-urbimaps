@@ -177,7 +177,7 @@
 	</platform>
 	<platform name="android">
 		<!-- Hooks -->
-		<hook type="before_plugin_install" src="hooks/change_package_name.js" />
+		<!--<hook type="before_plugin_install" src="hooks/change_package_name.js" />-->
 		<hook type="before_plugin_install" src="hooks/copy_sdk_key_android.js" />
 
 		<config-file target="AndroidManifest.xml" parent="/manifest">
@@ -198,29 +198,6 @@
 			</feature>
 
 		</config-file>
-
-		<config-file target="AndroidManifest.xml" parent="/manifest/application">
-        	<activity
-            	android:label="MainMapsActivity"
-            	android:name="com.outsystems.plugin.urbimaps.MainMapsActivity"
-            	android:theme="@style/Theme.AppCompat.NoActionBar"/>
-
-        	<activity android:label="SearchActivity" 
-            	android:name="com.outsystems.plugin.urbimaps.SearchActivity"
-            	android:theme="@style/Theme.AppCompat.NoActionBar"/>
-
-        	<activity android:label="MapsGisFullActivity" 
-            	android:name="com.outsystems.plugin.urbimaps.MapsGisFullActivity"
-            	android:theme="@style/Theme.AppCompat.NoActionBar"/>
-        </config-file>
-
-		<config-file target="./res/values/strings.xml" parent="/resources">
-  			<string-array name="route_search_types">
-        		<item>Car</item>
-        		<item>Pedestrian</item>
-        		<item>Bicycle</item>
-    		</string-array>
-		</config-file>
 		
 		<config-file parent="/*" target="AndroidManifest.xml"></config-file>
 		
@@ -229,30 +206,6 @@
 
 		<!-- Copy files Kotlin -->
 		<source-file src="src/android/UrbiMaps.kt" target-dir="app/src/main/kotlin/com/outsystems/plugin/urbimaps" />
-		<source-file src="src/android/MainMapsActivity.kt" target-dir="app/src/main/kotlin/com/outsystems/plugin/urbimaps" />
-		<source-file src="src/android/SearchActivity.kt" target-dir="app/src/main/kotlin/com/outsystems/plugin/urbimaps" />
-		<source-file src="src/android/SdkContext.kt" target-dir="app/src/main/kotlin/com/outsystems/plugin/urbimaps" />
-		<source-file src="src/android/NavigationViewModel.kt" target-dir="app/src/main/kotlin/com/outsystems/plugin/urbimaps" />
-		<source-file src="src/android/MapsGisFullActivity.kt" target-dir="app/src/main/kotlin/com/outsystems/plugin/urbimaps" />
-		<source-file src="src/android/CustomCompassManager.kt" target-dir="app/src/main/kotlin/com/outsystems/plugin/urbimaps" />
-		<source-file src="src/android/CustomLocationManager.kt" target-dir="app/src/main/kotlin/com/outsystems/plugin/urbimaps" />
-
-		<!-- Copies Layouts-->
-		<source-file src="src/android/layouts/activity_main.xml" target-dir="res/layout" />
-		<source-file src="src/android/layouts/activity_maps_full.xml" target-dir="res/layout" />
-		<source-file src="src/android/layouts/activity_search.xml" target-dir="res/layout" />
-		<source-file src="src/android/layouts/item_search.xml" target-dir="res/layout" />
-		<source-file src="src/android/layouts/rounded_edittext.xml" target-dir="res/drawable" />
-		<source-file src="src/android/layouts/rounded_edittext_initial.xml" target-dir="res/drawable" />
-		<source-file src="src/android/layouts/ic_back.xml" target-dir="res/drawable" />
-		<source-file src="src/android/layouts/ic_start.xml" target-dir="res/drawable" />
-		<source-file src="src/android/layouts/ic_finish.xml" target-dir="res/drawable" />
-		<source-file src="src/android/layouts/ic_navigation.xml" target-dir="res/drawable" />
-		<source-file src="src/android/layouts/ic_location.xml" target-dir="res/drawable" />
-		<source-file src="src/android/layouts/route_points_menu.xml" target-dir="res/menu" />
-
-		<!-- Copies Search Items -->
-		<source-file src="src/android/AdapterSearch.kt" target-dir="app/src/main/kotlin/com/outsystems/plugin/urbimaps" />
 
 		<!-- Copy Image Logo NEOM -->
 		<source-file src="src/neom_logo.png" target-dir="res/drawable" />

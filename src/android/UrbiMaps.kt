@@ -1,41 +1,46 @@
 package com.outsystems.plugin.urbimaps
 
+import ae.urbi.partners.neom.GoActivity
+import ae.urbi.partners.neom.Latitude
+import ae.urbi.partners.neom.Longitude
+import ae.urbi.partners.neom.ObjId
 import android.content.Intent
 import org.apache.cordova.CallbackContext
 import org.apache.cordova.CordovaInterface
 import org.apache.cordova.CordovaPlugin
 import org.apache.cordova.CordovaWebView
 import org.json.JSONArray
-import ru.dgis.sdk.Context
-import ru.dgis.sdk.DGis
-import ru.dgis.sdk.LogLevel
-import ru.dgis.sdk.LogOptions
-import ru.dgis.sdk.positioning.registerPlatformLocationSource
-import ru.dgis.sdk.positioning.registerPlatformMagneticSource
-import java.lang.Exception
 
 private const val ACTION_OPEN_MAPS = "openMap"
+private const val ACTION_OPEN_MAPS_WITH_FINISH_POINT = "openMapWithFinishPoint"
 
 class UrbiMaps : CordovaPlugin() {
 
-  lateinit var sdkContext: Context
-
   override fun initialize(cordova: CordovaInterface?, webView: CordovaWebView?) {
     super.initialize(cordova, webView)
-    sdkContext = initializeDGis(this.cordova.context)
-
-    if (this::sdkContext.isInitialized) {
-      SdkContext.context = sdkContext
-    }
-
-    registerServices()
   }
 
   override fun execute(action: String, args: JSONArray, callbackContext: CallbackContext): Boolean {
     try {
       if (ACTION_OPEN_MAPS == action) {
-        this.cordova.activity.startActivity(Intent(this.cordova.context, MainMapsActivity::class.java))
-        callbackContext.success()
+        try {
+          openMap()
+          callbackContext.success()
+        } catch (e:Exception){
+          callbackContext.error("An error occurred starting the map: " + e.message);
+        }
+        return true;
+      } else if (ACTION_OPEN_MAPS_WITH_FINISH_POINT == action) {
+        try {
+          var lat: Double = args.getDouble(0);
+          val long: Double = args.getDouble(1);
+          val objId: Long = args.getLong(2);
+          openMapWithFinishPoint(lat, long, objId);
+          callbackContext.success()
+        } catch (e:Exception){
+          callbackContext.error("An error occurred starting the map: " + e.message);
+        }
+        return true;
       } else {
         callbackContext.error("Action $action not found!")
       }
@@ -46,21 +51,17 @@ class UrbiMaps : CordovaPlugin() {
     return true
   }
 
-  private fun registerServices() {
-    val compassSource = CustomCompassManager(this.cordova.context)
-    registerPlatformMagneticSource(sdkContext, compassSource)
-
-    val locationSource = CustomLocationManager(this.cordova.context)
-    registerPlatformLocationSource(sdkContext, locationSource)
+  private fun openMapWithFinishPoint(lat: Double, lon: Double, objId: Long){
+    val it: Intent = GoActivity.Companion.prepareIntent(this.cordova.context, Latitude(lat), Longitude(lon), ObjId(objId)).also {
+      // Could be some activity or application class
+      this.cordova.context.startActivity(it)
+    }
   }
 
-  private fun initializeDGis(appContext: android.content.Context): Context {
-    return DGis.initialize(
-      appContext,
-      logOptions = LogOptions(
-        customLevel = LogLevel.WARNING,
-        customSink = null
-      )
-    )
+  private fun openMap(){
+    val it: Intent = GoActivity.Companion.prepareIntent(this.cordova.context).also {
+      // Could be some activity or application class
+      this.cordova.context.startActivity(it)
+    }
   }
 }

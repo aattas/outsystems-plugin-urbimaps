@@ -40,7 +40,7 @@ class UrbiMaps : CordovaPlugin() {
 
             callbackContext.success()
           } else {
-            callbackContext.error("JSON parsing error: " + e.getMessage());
+            callbackContext.error("Insufficient arguments");
           }
         } catch (e:Exception){
           callbackContext.error("An error occurred starting the map: " + e.message);

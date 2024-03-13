@@ -36,7 +36,7 @@ class UrbiMaps: CDVPlugin {
             let latitude = command.arguments[0] as? Double,
             let longitude = command.arguments[1] as? Double,
             let objId = command.arguments[2] as? UInt64 else {
-                let result = CDVPluginResult(status: CDVCommandStatus_ERROR, messageAs: "One of more parameters failed. Check latitude, longitude and the optinal objId")
+                let result = CDVPluginResult(status: CDVCommandStatus_ERROR, messageAs: "One of more parameters failed. Check latitude, longitude and the optional objId")
                 self.commandDelegate.send(result, callbackId: command.callbackId)
                 return;
             }

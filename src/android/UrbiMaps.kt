@@ -32,11 +32,16 @@ class UrbiMaps : CordovaPlugin() {
         return true;
       } else if (ACTION_OPEN_MAPS_WITH_FINISH_POINT == action) {
         try {
-          var lat: Double = args.getDouble(0);
-          val long: Double = args.getDouble(1);
-          val objId: Long = args.getLong(2);
-          openMapWithFinishPoint(lat, long, objId);
-          callbackContext.success()
+          if (args != null && args.length() >= 2) {
+            var lat: Double = args.getDouble(0);
+            val long: Double = args.getDouble(1);
+            val objId: Long = args.getLong(2);
+            openMapWithFinishPoint(lat, long, objId);
+
+            callbackContext.success()
+          } else {
+            callbackContext.error("JSON parsing error: " + e.getMessage());
+          }
         } catch (e:Exception){
           callbackContext.error("An error occurred starting the map: " + e.message);
         }

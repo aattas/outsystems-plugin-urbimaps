@@ -26,6 +26,9 @@ class UrbiMaps: CDVPlugin {
         hostingViewController.modalPresentationStyle = .fullScreen
         
         self.viewController.present(hostingViewController, animated: true, completion: nil)
+        
+        let result = CDVPluginResult(status: CDVCommandStatus_OK)
+        self.commandDelegate.send(result, callbackId: command.callbackId)
     }
     
     @objc(openMapWithFinishPoint:)
@@ -40,15 +43,18 @@ class UrbiMaps: CDVPlugin {
                 self.commandDelegate.send(result, callbackId: command.callbackId)
                 return;
             }
-        
         let urbiMapsView = UrbiView(logger: self.logger)
-                        .latitudeFinishPoint(latitude)
-                        .longitudeFinishPoint(longitude)
-                        .objIdFinishPoint(objId);
+            .latitudeFinishPoint(latitude)
+            .longitudeFinishPoint(longitude)
+            .objIdFinishPoint(objId);
         
         let hostingViewController = UIHostingController(rootView: urbiMapsView)
         hostingViewController.modalPresentationStyle = .fullScreen
         
         self.viewController.present(hostingViewController, animated: true, completion: nil)
+        
+        let result = CDVPluginResult(status: CDVCommandStatus_OK)
+        self.commandDelegate.send(result, callbackId: command.callbackId)
+        
     }
 }

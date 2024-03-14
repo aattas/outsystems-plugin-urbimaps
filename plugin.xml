@@ -8,7 +8,6 @@
 	</js-module>
 
 	<platform name="ios">
-
 		<preference name="LocationRequestMessage" default="Your location is required for using our maps" />
 		<!-- Hooks -->
 		<hook type="after_plugin_add" src="hooks/add_swift_support.js" />
@@ -38,8 +37,8 @@
 		<source-file src="src/ios/UrbiMaps.swift" />
 		<source-file src="src/ios/FullScreenHostingController.swift" />
 	</platform>
-	<platform name="android">
 
+	<platform name="android">
 		<config-file target="AndroidManifest.xml" parent="/manifest">
 			<uses-permission android:name="android.permission.INTERNET" />
 			<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -65,6 +64,5 @@
 
 		<!-- Copy files Kotlin -->
 		<source-file src="src/android/UrbiMaps.kt" target-dir="app/src/main/kotlin/com/outsystems/plugin/urbimaps" />
-
 	</platform>
 </plugin>

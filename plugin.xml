@@ -24,7 +24,7 @@
 		<podspec>
 			<pods use-frameworks="true">
 				<pod name="UrbiViewController"
-					options=":podspec => 'https://artifactory.2gis.dev/urbi-ios-release/partners/neom/2.1.0/UrbiViewController.podspec'" />
+					options=":podspec => 'https://artifactory.2gis.dev/urbi-ios-release/partners/neom/2.2.0/UrbiViewController.podspec'" />
 			</pods>
 		</podspec>
 

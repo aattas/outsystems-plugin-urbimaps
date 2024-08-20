@@ -28,5 +28,5 @@ android {
 }
 
 dependencies {
-    implementation 'ae.urbi.partners.neom:neomgo:2.1.0'
+    implementation 'ae.urbi.partners.neom:neomgo:2.2.0'
 }

@@ -23,9 +23,9 @@ android {
     splits {
         abi {
             enable false
-        // reset()
-        // include 'armeabi-v7a', 'arm64-v8a'
-        // universalApk false
+            // reset()
+            // include 'armeabi-v7a', 'arm64-v8a'
+            // universalApk false
         }
     }
 
@@ -49,9 +49,5 @@ android {
 }
 
 dependencies {
-    implementation('ae.urbi.partners.neom:neomgo:2.2.1') {
-        attributes {
-            attribute('com.android.build.attributes.BuildTypeAttr', 'debug')
-        }
-    }
+    implementation 'ae.urbi.partners.neom:neomgo:2.2.1'
 }

@@ -21,6 +21,14 @@
 			</array>
 		</config-file>
 
+		<config-file target="*-Info.plist" parent="/*">
+			<key>NSLocationWhenInUseUsageDescription</key>
+			<string>Your location is required for using our maps when the app is in use.</string>
+			<key>NSLocationAlwaysUsageDescription</key>
+			<string>Your location is required for using our maps even when the app is in the
+				background.</string>
+		</config-file>
+
 		<podspec>
 			<pods use-frameworks="true">
 				<pod name="UrbiViewController"
@@ -31,10 +39,6 @@
 			<feature name="UrbiMaps">
 				<param name="ios-package" value="UrbiMaps" />
 			</feature>
-			<key>NSLocationWhenInUseUsageDescription</key>
-			<string>We need your location to help guide you through NEOM Community</string>
-			<key>NSLocationAlwaysUsageDescription</key>
-			<string>We need your location to help guide you through NEOM Community</string>
 		</config-file>
 		<source-file src="src/ios/UrbiMaps.swift" />
 		<source-file src="src/ios/FullScreenHostingController.swift" />

@@ -27,11 +27,14 @@
 					options=":podspec => 'https://artifactory.2gis.dev/urbi-ios-release/partners/neom/2.2.1/UrbiViewController.podspec'" />
 			</pods>
 		</podspec>
-
 		<config-file parent="/*" target="config.xml">
 			<feature name="UrbiMaps">
 				<param name="ios-package" value="UrbiMaps" />
 			</feature>
+			<key>NSLocationWhenInUseUsageDescription</key>
+			<string>We need your location to help guide you through NEOM Community</string>
+			<key>NSLocationAlwaysUsageDescription</key>
+			<string>We need your location to help guide you through NEOM Community</string>
 		</config-file>
 		<source-file src="src/ios/UrbiMaps.swift" />
 		<source-file src="src/ios/FullScreenHostingController.swift" />

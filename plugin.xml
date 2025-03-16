@@ -23,10 +23,9 @@
 
 		<config-file target="*-Info.plist" parent="/*">
 			<key>NSLocationWhenInUseUsageDescription</key>
-			<string>Your location is required for using our maps when the app is in use.</string>
+			<string>We need your location to get the best experience exploring the community app.</string>
 			<key>NSLocationAlwaysUsageDescription</key>
-			<string>Your location is required for using our maps even when the app is in the
-				background.</string>
+			<string>We need your location to get the best experience exploring the community app.</string>
 		</config-file>
 
 		<podspec>

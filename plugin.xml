@@ -23,9 +23,11 @@
 
 		<config-file target="*-Info.plist" parent="/*">
 			<key>NSLocationWhenInUseUsageDescription</key>
-			<string>We need your location to get the best experience exploring the community map.</string>
+			<string>We need your location to help you navigate the NEOM community.</string>
 			<key>NSLocationAlwaysUsageDescription</key>
-			<string>We need your location to get the best experience exploring the community map.</string>
+			<string>We need your location to help you navigate the NEOM community.</string>
+			<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+			<string>We need your location to help you navigate the NEOM community.</string>
 		</config-file>
 
 		<podspec>

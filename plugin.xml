@@ -23,9 +23,9 @@
 
 		<config-file target="*-Info.plist" parent="/*">
 			<key>NSLocationWhenInUseUsageDescription</key>
-			<string>We need your location to get the best experience exploring the community app.</string>
+			<string>We need your location to get the best experience exploring the community map.</string>
 			<key>NSLocationAlwaysUsageDescription</key>
-			<string>We need your location to get the best experience exploring the community app.</string>
+			<string>We need your location to get the best experience exploring the community map.</string>
 		</config-file>
 
 		<podspec>

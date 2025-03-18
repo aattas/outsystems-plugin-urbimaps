@@ -21,14 +21,20 @@
 			</array>
 		</config-file>
 
-		<config-file target="*-Info.plist" parent="/*">
-			<key>NSLocationWhenInUseUsageDescription</key>
+		<edit-config file="*-Info.plist" mode="overwrite"
+			target="NSLocationWhenInUseUsageDescription">
 			<string>We need your location to help you navigate the NEOM community.</string>
-			<key>NSLocationAlwaysUsageDescription</key>
+		</edit-config>
+
+		<edit-config file="*-Info.plist" mode="overwrite"
+			target="NSLocationAlwaysUsageDescription">
 			<string>We need your location to help you navigate the NEOM community.</string>
-			<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+		</edit-config>
+
+		<edit-config file="*-Info.plist" mode="overwrite"
+			target="NSLocationAlwaysAndWhenInUseUsageDescription">
 			<string>We need your location to help you navigate the NEOM community.</string>
-		</config-file>
+		</edit-config>
 
 		<podspec>
 			<pods use-frameworks="true">

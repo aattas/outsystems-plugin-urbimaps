@@ -21,21 +21,6 @@
 			</array>
 		</config-file>
 
-		<edit-config file="*-Info.plist" mode="overwrite"
-			target="NSLocationWhenInUseUsageDescription">
-			<string>We need your location to help you navigate the NEOM community.</string>
-		</edit-config>
-
-		<edit-config file="*-Info.plist" mode="overwrite"
-			target="NSLocationAlwaysUsageDescription">
-			<string>We need your location to help you navigate the NEOM community.</string>
-		</edit-config>
-
-		<edit-config file="*-Info.plist" mode="overwrite"
-			target="NSLocationAlwaysAndWhenInUseUsageDescription">
-			<string>We need your location to help you navigate the NEOM community.</string>
-		</edit-config>
-
 		<podspec>
 			<pods use-frameworks="true">
 				<pod name="UrbiViewController"
